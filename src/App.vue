@@ -6,24 +6,8 @@
         </a>
 
         <div class="controles ml-auto">
-          <div class="notificacoes">
-            <a href="#">
-                <img src="src/assets/icon-notifications.svg" alt="">
-                <span class="badge badge-danger">1</span>
-              </a>
-          </div>            
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="src/assets/user-profile.png" class="rounded" alt="User image" style="height: 40px;"> 
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Configurações</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Sair</a>
-                      </div>
-                </li>            
-              </ul>       
+              <app-notificacao>3</app-notificacao>
+              <app-profile></app-profile>
         </div>
     
       </nav>
@@ -324,8 +308,15 @@
 </template>
 
 <script>
-export default {
+import AppNotificacao from './components/notificacoes/notificacoes.vue'
+import AppProfile from './components/profile/profile.vue'
 
+export default {
+  components: {
+    'app-notificacao': AppNotificacao,
+    'app-profile': AppProfile
+  }
+  
 }
 </script>
 
@@ -366,10 +357,6 @@ body {
     height: 65px;
 }
 
-.navbar-nav .dropdown-menu {
-    position: absolute;
-}
-
 .navbar-brand {
     padding: 0;
 }
@@ -378,14 +365,6 @@ body {
     display: flex;
 }
 
-.notificacoes {
-  top: 15px;
-  position: relative;
-}
-
-.dropdown-menu.show {
-    left: -100px;
-}
 
 .nav-link {
     color: #868686;
@@ -593,13 +572,5 @@ body {
 .cartao-buttons.btn.btn-light {
     color: #328EBA;
 }
-
-.badge.badge-danger {
-    top: -8px;
-    position: relative;
-    right: 18px;
-    font-size: x-small;
-}
-  
 
 </style>
