@@ -7,7 +7,7 @@
 
         <div class="controles ml-auto">
               <app-notificacao>3</app-notificacao>
-              <app-profile></app-profile>
+              <app-profile url="src/assets/user-profile.png"></app-profile>
         </div>
     
       </nav>

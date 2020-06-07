@@ -22,7 +22,6 @@ describe('App está montada', () => {
         });
 
         expect(shallowWrapper.html()).toContain('3')
-        console.log("Teste: ", shallowWrapper.html());
     });
     
 });

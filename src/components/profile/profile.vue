@@ -3,7 +3,7 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="src/assets/user-profile.png" class="rounded" alt="User image" style="height: 40px;"> 
+                    <img :src="url" class="rounded" alt="User image" style="height: 40px;"> 
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Configurações</a>
@@ -14,6 +14,18 @@
         </ul>       
     </div>
 </template>
+
+<script>
+export default {
+    name: 'profile',
+    props: {
+        url: {
+            type: String,
+            required: true
+        }
+    }
+}
+</script>
 
 <style scoped>
 
