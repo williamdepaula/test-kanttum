@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name: 'app-notificacao'
+    name: 'notificacao'
 }
 </script>
 

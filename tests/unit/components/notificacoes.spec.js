@@ -17,7 +17,7 @@ describe('App está montada', () => {
 
         const shallowWrapper = shallowMount(AppNotificacao,{
             scopedSlots: {
-                default: '<app-notificacao>3</app-notificacao>'
+                default: '<notificacao>3</notificacao>'
             }
         });
 
