@@ -52,6 +52,8 @@ import CardProcesso from './components/card-processo/card-processo.vue';
 import AppBusca from './components/app-busca/app-busca.vue';
 import AppMenu from './components/app-menu/app-menu.vue';
 
+const fetch = require("node-fetch");
+
 export default {
   components: {
     'notificacao': AppNotificacao,
