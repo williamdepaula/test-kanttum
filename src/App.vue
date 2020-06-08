@@ -30,10 +30,10 @@
                             </div>
                         </div>
 
-                        <app-busca v-on:filtrar="filtrarCards($event)" ></app-busca>
+                        <app-busca v-on:filtrar="listaCards($event)" ></app-busca>
                           
                         <div class="cartoes row">
-                          <div class="col-md-6" v-for="processo in processos" :key="processo.id">
+                          <div class="col-md-6" v-for="processo in listProcessos" :key="processo.id">
                             <card-processo v-bind:processo="processo"></card-processo>
                           </div>
                         </div>
@@ -60,8 +60,13 @@ export default {
     'app-busca': AppBusca,
     'app-menu': AppMenu
   },
+  created() {
+    this.listProcessos = this.processos;
+  },
   data() {
     return {
+      filtro: '',
+      listProcessos: [],
       processos: [
         {
           id:1,
@@ -78,13 +83,25 @@ export default {
           atividades_esperando_mentoria: 54,
           evidencias: 1,
           feedbacks: 24
+        },
+        {
+          id: 3,
+          nome: 'Novo modelo',
+          qtd_etapas: 4,
+          atividades_esperando_mentoria: 12,
+          evidencias: 45,
+          feedbacks: 124
         }
       ]
     }
   },
   methods: {
-    filtrarCards: function(filtro) {
-      alert(filtro);
+    filtroCards: function(value) {
+      return value.nome.startsWith(this.filtro);
+    },
+    listaCards: function(filtro) {
+      this.filtro = filtro;
+      this.listProcessos = this.processos.filter(this.filtroCards);
     }
   }
   

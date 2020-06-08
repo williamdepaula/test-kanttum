@@ -1,10 +1,10 @@
 <template>
     <div class="filtros row">
         <div class="col-11">
-            <form v-on:submit.prevent="burcarValor" action="" class="search-form">
+            <form v-on:submit.prevent="" action="" class="search-form">
                 <div class="form-group has-feedback">
                 <label for="search" class="sr-only">Buscar</label>
-                <input v-model="valorBuscado" type="text" class="form-control" name="search" id="search" placeholder="buscar">
+                <input v-on:keyup="burcarValor" v-model="valorBuscado" type="text" class="form-control" name="search" id="search" placeholder="buscar">
                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                 <span class="material-icons form-control-feedback">search</span>
                 </div>
