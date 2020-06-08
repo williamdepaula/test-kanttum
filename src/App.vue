@@ -61,43 +61,26 @@ export default {
     'app-menu': AppMenu
   },
   created() {
-    this.listProcessos = this.processos;
+    this.buscaDados();
   },
   data() {
     return {
       filtro: '',
       listProcessos: [],
-      processos: [
-        {
-          id:1,
-          nome: 'Processo 1',
-          qtd_etapas: 7,
-          atividades_esperando_mentoria: 23,
-          evidencias: 13,
-          feedbacks: 89
-        },
-        {
-          id: 2,
-          nome: 'Processo 2',
-          qtd_etapas: 3,
-          atividades_esperando_mentoria: 54,
-          evidencias: 1,
-          feedbacks: 24
-        },
-        {
-          id: 3,
-          nome: 'Novo modelo',
-          qtd_etapas: 4,
-          atividades_esperando_mentoria: 12,
-          evidencias: 45,
-          feedbacks: 124
-        }
-      ]
+      processos: []
     }
   },
   methods: {
+    buscaDados: function() {
+      fetch('http://my-json-server.typicode.com/williamdepaula/test-kanttum/processos')
+      .then(response => response.json())
+      .then(json => {
+        this.processos = json;
+        this.listProcessos = this.processos;
+      })
+    },
     filtroCards: function(value) {
-      return value.nome.startsWith(this.filtro);
+      return value.nome.toLowerCase().startsWith(this.filtro.toLowerCase());
     },
     listaCards: function(filtro) {
       this.filtro = filtro;
